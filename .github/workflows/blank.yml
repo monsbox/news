@@ -14,4 +14,6 @@ jobs:
       - name: Install dependencies
         run: pip install --upgrade notionai-py
       - name: Run Python script
-        run: python script.py # 执行 Python 脚本
+        env:
+          SECRET_KEY: ${{ secrets.SPACE_ID }}
+        run: python script.py $SECRET_KEY # 执行 Python 脚本
