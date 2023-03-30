@@ -1,4 +1,16 @@
 name: Run Python Script
-env: SECRET_KEY: ${{ secrets.SPACE_ID }}
-run: | 
-  python script.py $SECRET_KEY
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x' # 指定 Python 版本
+      - name: Install dependencies
+        run: pip install -r requirements.txt # 安装依赖
+      - name: Run Python script
+        run: python script.py 
