@@ -16,4 +16,4 @@ jobs:
       - name: Run Python script
         env:
           SECRET_KEY: ${{ secrets.SPACE_ID }}
-        run: python script.py $SECRET_KEY # 执行 Python 脚本
+        run: python script.py SECRET_KEY # 执行 Python 脚本
